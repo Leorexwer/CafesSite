@@ -1,0 +1,61 @@
+@import "core/variables";
+@import "core/default";
+
+#map {
+        height: 400px;
+        width: 100%;
+        z-index: 1
+}
+
+.body {
+	display: flex;
+	flex-direction: column;
+	max-height: 100vh;
+}
+
+.container {
+	padding: 50px 20px;
+	width: 100vw;
+	flex: 1;
+	z-index: 2;
+}
+
+.cafes {
+	color: #fff;
+	display: flex;
+	&__cafe {
+		background: #c00;
+		width: 200px;
+		margin-right: 1vw;
+		border-radius: 5px;
+	}
+}
+
+.cafe {
+	border-bottom: 1px solid #300;
+	padding: 5px 10px 10px;
+	transition: transform .1s ease, opacity .2s ease;
+	opacity: .6;
+	&__name {
+		font-size: 2em;
+		line-height: 1em;
+	}
+	&--chosen {
+		transform: scale(1.1);
+		opacity: 1;
+		z-index: 3;
+		box-shadow: 0 4px 20px rgba(100, 0, 0, .3);
+	}
+}
+
+
+//TODO NO IDS IN CSS NEVER NEVER FORGETTI
+#map {
+	flex: 1;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	height: 100vh;
+}

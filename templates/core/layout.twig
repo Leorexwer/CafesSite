@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>{{ title | default("Инитум") }}</title>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  {% block styles %}{% endblock %}
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="body">
+  {% block body %}{% endblock %}
+</div>
+
+{% block scripts %}{% endblock %}
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5d5Lj3PorNs07w4GAfcwSU07jeZTKZpM&callback=initMap"
+type="text/javascript">
+</script>
+<script src="assets/source/scripts/common.js"></script>
+</body>
+</html>
