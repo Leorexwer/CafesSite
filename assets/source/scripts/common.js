@@ -6,33 +6,38 @@ let cafes = {
   "0": {
 	"name": "Traveller's",
 	"coords": {
-	  "lng": 123,
-	  "lat": 123
-		}
+	  "lat": 61.288572,
+	  "lng": 73.405472,
+		},
+	"pic_url": "http://ttphotos.s3-website-eu-west-1.amazonaws.com/gallery/12/210012/1024x768/2448611.jpg"
   },
   "1":{
 	"name": "Starbucks",
 	"coords": {
+	  "lat": 123,
 	  "lng": 123,
-	  "lat": 123
+	  "pic_url": ""
 		}
   },
   "2":{
 	"name": "",
 	"coords": {
+	  "lat": 123,
 	  "lng": 123,
-	  "lat": 123 
+	  "pic_url": ""
 		}
   }
 }
 
 const renderCafes = cafe => {
-	const {name, coords} = cafe
+	const {name, coords, pic_url} = cafe
 	const cafeDom = document.createElement('div')
 	cafeDom.className = 'cafes__cafe cafe'
 	cafeDom.innerHTML = `
 		<div id="cafe__name">${name}</div>
-		<div id="cafe__coordinates">${coords.lat} ${coords.lng}</div>
+		<div id="cafe__coordinates__lat">${coords.lat}</div>
+		<div id="cafe__coordinates__lng">${coords.lng}</div>
+		<div id="cafe__image"><img href="${pic_url}"></div>
 	`
 	document.querySelector('.cafes').append(cafeDom)
 }
@@ -49,13 +54,16 @@ const toggleSingle = () => {
 		element.onclick = () => {
 			if (!element.classList.contains('cafe--chosen')) {
 				element.classList.add('cafe--chosen')
-				var cord = element.querySelector('#cafe__coordinates').innerHTML;
+				var plng = element.querySelector('#cafe__coordinates__lng').innerHTML;
+				var plat = element.querySelector('#cafe__coordinates__lat').innerHTML;
 			} else {
 				element.classList.remove('cafe--chosen')
 			}
 		}
 	})
 }
+
+toggleSingle()
 
 const toggleMultiple = () => {
 	document.querySelector('.cafe').classList.add('cafe--chosen')
@@ -69,16 +77,19 @@ const toggleMultiple = () => {
 		}
 	})
 }
-window.initMap = function(){
-	var uluru = {lat: 61.251458, lng: 73.4293743};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-initMap()
+
 toggleMultiple()
+
+function initMap() {
+	var trav = {lat: 61.2497528, lng: 73.4023178}
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 16,
+		center: trav
+	});
+	var marker = new google.maps.Marker({
+		position: trav,
+		map: map
+	});
+}
+
+initMap()

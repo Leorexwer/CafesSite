@@ -46,6 +46,11 @@
 		z-index: 3;
 		box-shadow: 0 4px 20px rgba(100, 0, 0, .3);
 	}
+	&__image {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
 }
 
 
